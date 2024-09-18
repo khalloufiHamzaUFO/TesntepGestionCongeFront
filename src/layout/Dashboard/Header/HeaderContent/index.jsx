@@ -1,0 +1,49 @@
+// material-ui
+import useMediaQuery from '@mui/material/useMediaQuery';
+import IconButton from '@mui/material/IconButton';
+import Link from '@mui/material/Link';
+import Box from '@mui/material/Box';
+import { GithubOutlined } from '@ant-design/icons';
+
+// project import
+import Search from './Search';
+import Profile from './Profile';
+import Notification from './Notification';
+import NotificationApp from './NotificationAp';
+import MobileSection from './MobileSection';
+
+// project import
+import Avatar from '@mui/material/Avatar';
+import PageviewIcon from '@mui/icons-material/Pageview';
+import { pink } from '@mui/material/colors';
+
+
+// ==============================|| HEADER - CONTENT ||============================== //
+
+export default function HeaderContent() {
+  const downLG = useMediaQuery((theme) => theme.breakpoints.down('lg'));
+
+  return (
+    <>
+      {!downLG && <Search />}
+      {downLG && <Box sx={{ width: '100%', ml: 1 }} />}
+        <IconButton
+            component={Link}
+            href="https://github.com/codedthemes/mantis-free-react-admin-template"
+            target="_blank"
+            disableRipple
+            color="secondary"
+            title="Download Free Version"
+            sx={{ color: 'text.primary', bgcolor: 'grey.100' }}
+        >
+            <GithubOutlined />
+        </IconButton>
+
+
+        <Notification />
+      <NotificationApp />
+      {!downLG && <Profile />}
+      {downLG && <MobileSection />}
+    </>
+  );
+}
