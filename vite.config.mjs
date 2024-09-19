@@ -24,6 +24,11 @@ export default defineConfig({
       }
     ]
   },
+  build: {
+    rollupOptions: {
+      external: ['axios'] // Exclude axios from the bundle
+    },
+  },
   server: {
     open: true,
     port: 3000
